@@ -4,36 +4,47 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.example</groupId>
+    <groupId>org.smashtik</groupId>
     <artifactId>AppiumToDoPOM</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
+        <jackson.databind.version>2.9.8</jackson.databind.version>
+        <io.appium.version>7.4.1</io.appium.version>
+        <org.testng.version>6.14.3</org.testng.version>
+        <commons-io.version>2.5</commons-io.version>
+        <com.googlecode.json-simple.version>1.1.1</com.googlecode.json-simple.version>
+        <org.apache.maven.plugins.surefire.version>2.21.0</org.apache.maven.plugins.surefire.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>io.appium</groupId>
             <artifactId>java-client</artifactId>
-            <version>7.4.1</version>
+            <version>${io.appium.version}</version>
         </dependency>
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>6.14.3</version>
+            <version>${org.testng.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
-            <version>2.5</version>
+            <version>${commons-io.version}</version>
         </dependency>
         <dependency>
             <groupId>com.googlecode.json-simple</groupId>
             <artifactId>json-simple</artifactId>
-            <version>1.1.1</version>
+            <version>${com.googlecode.json-simple.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.databind.version}</version>
         </dependency>
     </dependencies>
     <profiles>
@@ -44,7 +55,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-surefire-plugin</artifactId>
-                        <version>2.21.0</version>
+                        <version>${org.apache.maven.plugins.surefire.version}</version>
                         <configuration>
                             <suiteXmlFiles>
                                 <suiteXmlFile>iOS_testng.xml</suiteXmlFile>
@@ -61,7 +72,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-surefire-plugin</artifactId>
-                        <version>2.21.0</version>
+                        <version>${org.apache.maven.plugins.surefire.version}</version>
                         <configuration>
                             <suiteXmlFiles>
                                 <suiteXmlFile>android_testng.xml</suiteXmlFile>
